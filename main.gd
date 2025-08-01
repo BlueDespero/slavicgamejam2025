@@ -20,9 +20,9 @@ func _process(delta: float) -> void:
 
 func init_debug_plants() -> void:
 	var plants = [
-		[plant_scene.instantiate(), Vector2(300, 200)],
-		[wheat_scene.instantiate(), Vector2(500, 200)],
-		[tomato_scene.instantiate(), Vector2(700, 200)],
+		[plant_scene.instantiate(), Vector2(32, 32)],
+		[wheat_scene.instantiate(), Vector2(32 + 64, 32)],
+		[tomato_scene.instantiate(), Vector2(32 + 64 + 64, 32)],
 	]
 	for plant in plants:
 		plant[0].position = plant[1]

@@ -54,11 +54,12 @@ animations = [{
 }]
 
 [node name="Wheat" type="RigidBody2D"]
+scale = Vector2(4, 4)
 gravity_scale = 0.0
 script = ExtResource("1_pc4wn")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(10, 10)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_5uwo3")
 animation = &"growth"

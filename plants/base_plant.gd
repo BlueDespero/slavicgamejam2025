@@ -14,6 +14,9 @@ func _ready():
 
 func grow():
 	"""Grow to the next stage"""
+	if not can_grow():
+		print(plant_name, " can't grow on this field")
+		return 
 	if current_stage < growth_stages - 1:
 		current_stage += 1
 		update_sprite()
@@ -33,3 +36,6 @@ func get_current_stage() -> int:
 
 func is_fully_grown() -> bool:
 	return current_stage >= growth_stages - 1
+
+func can_grow() -> bool:
+	return true
