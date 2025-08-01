@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsiivn6pegbof"]
+
+[ext_resource type="Texture2D" uid="uid://cl5dd5h1d7seb" path="res://assets/Tiles/Small tiles/Thin outline/tile_0074.png" id="1_7ndav"]
+[ext_resource type="Script" uid="uid://ca3csymluqk1n" path="res://plant_button.gd" id="2_iqeou"]
+
+[node name="PlantButton" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+icon = ExtResource("1_7ndav")
+expand_icon = true
+script = ExtResource("2_iqeou")
