@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://1al25n8y6pmm"]
+
+[ext_resource type="Texture2D" uid="uid://dnfc64sqkr4jp" path="res://icon.svg" id="1_80edf"]
+
+[node name="GUI" type="Node"]
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NewOrderTimer" type="Timer" parent="TopBar"]
+
+[node name="Recipe" type="BoxContainer" parent="TopBar"]
+layout_mode = 2
+
+[node name="OrderTimeout" type="Timer" parent="TopBar/Recipe"]
+
+[node name="TextureRect" type="TextureRect" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_80edf")
+expand_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+offset_top = 584.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect2" type="TextureRect" parent="BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_80edf")
+expand_mode = 2
