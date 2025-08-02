@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bewb1j0gyhyrk" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://1al25n8y6pmm" path="res://GUI/gui.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cqpw0gnmoueuk" path="res://map.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cqpw0gnmoueuk" path="res://map/map.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
