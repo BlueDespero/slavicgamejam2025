@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	if last_update >= update_interval:
 		last_update = 0.0
 		grow()
+		influence()
 
 func grow():
 	"""Grow to the next stage"""
