@@ -7,4 +7,5 @@
 script = ExtResource("1_ig7tw")
 
 [node name="Player" type="CollisionShape2D" parent="."]
+
 [node name="GUI" parent="." instance=ExtResource("2_0xm2m")]
