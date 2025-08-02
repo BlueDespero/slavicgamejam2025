@@ -8,11 +8,14 @@
 [node name="GUI" type="Node"]
 
 [node name="TopBar" type="HBoxContainer" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(0, 64)
-anchors_preset = 10
-anchor_right = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -800.0
+offset_right = -672.0
+offset_bottom = 64.0
 grow_horizontal = 2
+scale = Vector2(2.2, 2.2)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -25,6 +28,7 @@ autostart = true
 
 [node name="Orders" parent="TopBar" instance=ExtResource("2_cor1f")]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="BottomBar" type="HBoxContainer" parent="."]
 anchors_preset = 7

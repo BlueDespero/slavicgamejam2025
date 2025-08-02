@@ -15,9 +15,10 @@ func _input(event):
 		and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 	):
 		var mouse_pos = get_global_mouse_position()
-		var clicked_tile_coords = tile_map.local_to_map(mouse_pos)
-		print("Tile coordinates: ", clicked_tile_coords)
-		target_position = tile_map.map_to_local(clicked_tile_coords)
+		var local_mouse_pos = tile_map.to_local(mouse_pos)
+		var clicked_tile_coords = tile_map.local_to_map(local_mouse_pos)
+		var target_position_local = tile_map.map_to_local(clicked_tile_coords)
+		target_position = tile_map.to_global(target_position_local)
 		
 func _physics_process(delta):
 	var direction = global_position.direction_to(target_position)
