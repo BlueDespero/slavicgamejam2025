@@ -13,7 +13,9 @@ func create_identifier_buttons(spritesheet: Texture2D) -> Array:
 			plant.sprite_positions.y, 
 			16, 
 			plant.name,
-			plant.key)
+			plant.key,
+			plant.class_name,
+			)
 		buttons.append(button)
 	
 	return buttons

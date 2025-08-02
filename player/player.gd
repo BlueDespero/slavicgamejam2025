@@ -6,8 +6,6 @@ var screen_size
 var target_position: Vector2
 
 func _ready() -> void:
-	if tile_map == null:
-		print_rich("[color=red]ERROR: TileMap not assigned to the player script.[/color]")
 	screen_size = get_viewport_rect().size
 	target_position = global_position
 

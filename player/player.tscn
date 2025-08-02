@@ -129,6 +129,7 @@ radius = 129.0
 height = 474.0
 
 [node name="Player" type="Area2D"]
+z_index = 5
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
 
