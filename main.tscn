@@ -12,3 +12,4 @@ script = ExtResource("1_ig7tw")
 [node name="GUI" parent="." instance=ExtResource("2_0xm2m")]
 
 [node name="Map" parent="." instance=ExtResource("3_h2yge")]
+metadata/_edit_lock_ = true
