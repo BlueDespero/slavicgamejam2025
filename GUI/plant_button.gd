@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 
 func trigger_action() -> void:
 	print("Button triggered by hotkey: " + button_name)
-	pressed.emit()
+	EventBus.plant_selected.emit(plant_key)
 	
 	modulate = Color(1.2, 1.2, 1.2)
 	var tween = create_tween()
