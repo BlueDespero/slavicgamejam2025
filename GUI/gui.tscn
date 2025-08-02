@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c3ey4vql5qa6y" path="res://GUI/top_bar.gd" id="1_cor1f"]
 [ext_resource type="PackedScene" uid="uid://bolly6ssnwqm5" path="res://GUI/order.tscn" id="2_cor1f"]
 [ext_resource type="Script" uid="uid://dqhvj5qegq3cx" path="res://GUI/bottom_bar.gd" id="2_q8o8l"]
-[ext_resource type="Script" path="res://GUI/score_box.gd" id="4_qtfhu"]
+[ext_resource type="Script" uid="uid://bs0w4h868tkvk" path="res://GUI/score_box.gd" id="4_qtfhu"]
 
 [node name="GUI" type="Node"]
 
