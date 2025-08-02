@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 400;
-var tile_map: TileMapLayer
+@export var tile_map: TileMapLayer
 var screen_size
 var target_position: Vector2
 
@@ -18,7 +18,7 @@ func _input(event):
 		var clicked_tile_coords = tile_map.local_to_map(mouse_pos)
 		print("Tile coordinates: ", clicked_tile_coords)
 		target_position = tile_map.map_to_local(clicked_tile_coords)
-
+		
 func _physics_process(delta):
 	var direction = global_position.direction_to(target_position)
 	var velocity = Vector2.ZERO
