@@ -18,3 +18,4 @@ func influence() -> void:
 func can_grow() -> bool:
 	# Cucumber plants require water to grow
 	return tile_map.get_water(tile) >= 1
+	

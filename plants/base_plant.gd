@@ -13,7 +13,10 @@ var tile: Vector2i
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var last_update: float = 0.0
 var update_interval: float = 1.0
-var growth_rate: float = 0.1
+var growth_rate: float = 1
+
+var jump_position: int = 0
+var jump_timer: float = 0.0
 
 func _ready():
 	update_sprite()
@@ -28,10 +31,28 @@ func create_scene(curr_tile, curr_tile_map: TileMapLayer) -> Node2D:
 func _process(delta: float) -> void:
 	# Update the terrain periodically
 	last_update += delta
+	
+	if is_fully_grown():
+		make_it_jump(delta)
+			
 	if last_update >= update_interval:
 		last_update = 0.0
 		grow()
 		influence()
+		
+func make_it_jump(delta: float):
+	jump_timer += delta
+	if jump_timer < 0.15:
+		return
+	jump_timer = 0.0
+	var jump_height = 10
+	if jump_position == 0:
+		self.position.y -= jump_height
+		jump_position = 1
+	else:
+		self.position.y += jump_height
+		jump_position = 0
+	
 
 func grow():
 	"""Grow to the next stage"""
