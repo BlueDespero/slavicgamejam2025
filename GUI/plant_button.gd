@@ -3,6 +3,7 @@ extends Button
 var button_icon: Texture2D
 var assigned_key: Key
 var button_name: String
+var cls_instance: GDScript
 var plant_button_text_template: String = "%s (%d) \nIn strore: %d"
 
 func initialize_from_grid(spritesheet: Texture2D, plant: Dictionary, cell_size: int) -> void:
@@ -20,6 +21,12 @@ func initialize_from_grid(spritesheet: Texture2D, plant: Dictionary, cell_size: 
 	text = plant_button_text_template % [plant.name, plant.key - 48, 0]
 	add_theme_font_size_override("font_size", 12)
 	icon = button_icon
+	cls_instance = {
+		'Tulip': TulipPlant,
+		'Turnip': TurnipPlant,
+		'Rose': RosePlant,
+		'Cucumber': CucumberPlant,
+	}[plant.class_name]
 
 	icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
@@ -39,7 +46,7 @@ func _input(event: InputEvent) -> void:
 
 func trigger_action() -> void:
 	print("Button triggered by hotkey: " + button_name)
-	pressed.emit()
+	EventBus.plant_selected.emit(cls_instance)
 	
 	modulate = Color(1.2, 1.2, 1.2)
 	var tween = create_tween()

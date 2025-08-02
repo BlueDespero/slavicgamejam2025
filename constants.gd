@@ -9,20 +9,24 @@ var plants = [
 		"name": "Turnip",
 		"sprite_positions": {"x": 0, "y": 0},
 		"key": KEY_1,
+		"class_name": "Turnip",
 	},
 	{
 		"name": "Rose",
 		"sprite_positions": {"x": 6, "y": 0},
 		"key": KEY_2,
+		"class_name": "Rose",
 	},
 	{
 		"name": "Cucumber",
 		"sprite_positions": {"x": 0, "y": 1},
 		"key": KEY_3,
+		"class_name": "Cucumber",
 	},
 	{
 		"name": "Tulip",
 		"sprite_positions": {"x": 6, "y": 1},
 		"key": KEY_4,
+		"class_name": "Tulip",
 	},	
 ]
