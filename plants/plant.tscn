@@ -54,7 +54,6 @@ animations = [{
 }]
 
 [node name="Plant" type="RigidBody2D"]
-scale = Vector2(4, 4)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_2vmhr")

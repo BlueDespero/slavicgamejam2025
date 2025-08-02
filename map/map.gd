@@ -2,7 +2,16 @@
 extends Node2D
 
 @onready var tile_map = $Terrain
-@onready var player = $Player
+@onready var player: Area2D = $Player
+
+var planted_plants = {}
 
 func _ready():
 	player.tile_map = tile_map
+	EventBus.plant_selected.connect(Callable(self, "_on_plant_selected"))
+	
+func _on_plant_selected(plant_cls):
+	var curr_tile = tile_map.local_to_map(player.position)
+	var curr_position = tile_map.map_to_local(curr_tile)
+	var plant = plant_cls.new().create_scene(curr_position)
+	add_child(plant)

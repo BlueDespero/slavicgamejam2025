@@ -22,11 +22,21 @@ func _ready() -> void:
 				set_cell(coords, 0, atlas)
 			shadow[coords] = atlas.x
 			water[coords] = atlas.y
-			print("Shadow at ", coords, ": ", shadow[coords], " Water: ", water[coords])
 	
 	update_terrain()
 	
 
+func _input(event):
+	if (
+		event is InputEventMouseButton 
+		and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
+	):
+		var mouse_pos = get_global_mouse_position()
+		var clicked_tile_coords = local_to_map(mouse_pos)
+		print("Clicked at: ", clicked_tile_coords)
+		print("Tile position: ", map_to_local(clicked_tile_coords))
+		
+		
 func _process(delta: float) -> void:
 	# Update the terrain periodically
 	last_update += delta
