@@ -23,7 +23,10 @@ func order_fulfilled(storage: Dictionary)->Array:
 	
 func cash_in_points() -> void:
 	# TODO make scoreing dynamic
-	EventBus.change_score.emit(100)
+	EventBus.change_score.emit(calculate_score_for_order())
+	
+func calculate_score_for_order() -> int:
+	return 100
 
 func generate_order() -> void:
 	var no_ingredience = rng.randi_range(1,Constants.MAX_INGREDIENCE_PER_ORDER)
@@ -62,5 +65,5 @@ func get_icon(plant: Dictionary) -> AtlasTexture:
 
 func _on_order_timeout_timeout() -> void:
 	# TODO dynamic scoring * discount
-	EventBus.change_score.emit(-100)
+	EventBus.change_score.emit(-calculate_score_for_order())
 	queue_free()
