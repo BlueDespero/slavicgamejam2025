@@ -29,6 +29,11 @@ func initialize_from_grid(spritesheet: Texture2D, plant: Dictionary, cell_size: 
 		'Turnip': TurnipPlant,
 		'Rose': RosePlant,
 		'Cucumber': CucumberPlant,
+		'Tomato': TomatoPlant,
+		'Melon': MelonPlant,
+		'Eggplant': EggplantPlant,
+		'Lemon': LemonPlant,
+
 	}[plant.name]
 
 	icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
