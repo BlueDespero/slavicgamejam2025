@@ -108,3 +108,19 @@ func get_shadow(coords: Vector2i) -> int:
 		if tile_shadow > MAX_SHADOW_LEVEL: tile_shadow = MAX_SHADOW_LEVEL
 		return tile_shadow
 	return MIN_SHADOW_LEVEL
+
+func cast_shadow(coords: Vector2i, value: int, limit: int) -> void:
+	"""Cast shadow onto neighboring tiles."""
+	const shadow_directions = [
+		TileSet.CellNeighbor.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE,
+		TileSet.CellNeighbor.CELL_NEIGHBOR_RIGHT_SIDE,
+	]
+	for direction in shadow_directions:
+		var neighbor = get_neighbor_cell(coords, direction)
+		if !shadow.has(neighbor):
+			continue
+		if shadow[neighbor] < limit:
+			shadow[neighbor] += value
+			var atlas = get_cell_atlas_coords(neighbor)
+			atlas[0] = get_shadow(neighbor)
+			set_cell(neighbor, 0, atlas)
