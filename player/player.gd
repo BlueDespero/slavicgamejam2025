@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 400;
-#@export var tile_map: TileMap
+@export var tile_map: TileMap
 var screen_size
 var target_position: Vector2
 
