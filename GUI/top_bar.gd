@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_new_order_timer_timeout() -> void:
-	var NewOrder = order_instance.instantiate()
-	add_child(NewOrder)
+	if get_children().filter(func(n): return n is HBoxContainer).size() < Constants.MAX_NUMBER_ORDERS:
+		var NewOrder = order_instance.instantiate()
+		add_child(NewOrder)
