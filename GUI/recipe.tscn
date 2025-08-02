@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bolly6ssnwqm5"]
+
+[ext_resource type="Texture2D" uid="uid://b4ixhn1k6fa46" path="res://assets/Tiles/Small tiles/Thin outline/tile_0010.png" id="1_caerl"]
+
+[node name="Recipe" type="HBoxContainer"]
+
+[node name="OrderTimeout" type="Timer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+texture = ExtResource("1_caerl")

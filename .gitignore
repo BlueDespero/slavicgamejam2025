@@ -2,5 +2,6 @@
 .godot/
 .vscode/
 /android/
+.DS_Store
 *.afdesign~lock~
 *.afdesign
