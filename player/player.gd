@@ -18,6 +18,10 @@ func _input(event):
 		var clicked_tile_coords = tile_map.local_to_map(mouse_pos)
 		print("Tile coordinates: ", clicked_tile_coords)
 		target_position = tile_map.map_to_local(clicked_tile_coords)
+	if event is InputEventKey and event.pressed and not event.is_echo():		if event.keycode == KEY_SPACE:
+		var curr_tile = tile_map.local_to_map(position)
+		EventBus.harvest_crops.emit(curr_tile)
+
 		
 func _physics_process(delta):
 	var direction = global_position.direction_to(target_position)
