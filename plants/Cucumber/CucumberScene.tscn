@@ -1,29 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciekeu7ene66j"]
+[gd_scene load_steps=10 format=3 uid="uid://ciekeu7ene66j"]
 
-[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="1_jpms8"]
+[ext_resource type="Script" uid="uid://d1p5x2caqbo7y" path="res://plants/Cucumber/cucumber_plant.gd" id="1_25srx"]
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="1_w4vpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybd7x"]
-atlas = ExtResource("1_jpms8")
+atlas = ExtResource("1_w4vpu")
 region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au46t"]
-atlas = ExtResource("1_jpms8")
+atlas = ExtResource("1_w4vpu")
 region = Rect2(64, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gi2xm"]
-atlas = ExtResource("1_jpms8")
+atlas = ExtResource("1_w4vpu")
 region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tsdie"]
-atlas = ExtResource("1_jpms8")
+atlas = ExtResource("1_w4vpu")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg6ri"]
-atlas = ExtResource("1_jpms8")
+atlas = ExtResource("1_w4vpu")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lde02"]
-atlas = ExtResource("1_jpms8")
+atlas = ExtResource("1_w4vpu")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5uwo3"]
@@ -48,15 +49,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_lde02")
 }],
 "loop": true,
-"name": &"growth",
+"name": &"default",
 "speed": 5.0
 }]
 
-[node name="Cucumber" type="RigidBody2D"]
+[node name="CucumberScene" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_25srx")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_5uwo3")
-animation = &"growth"

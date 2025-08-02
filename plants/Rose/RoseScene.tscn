@@ -58,4 +58,5 @@ gravity_scale = 0.0
 script = ExtResource("1_86kvf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_0ucgp")
