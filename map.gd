@@ -12,9 +12,6 @@ func _ready():
 	
 func _on_plant_selected(plant_cls):
 	var curr_tile = tile_map.local_to_map(player.position)
-	print("???")
-	var obj = plant_cls.new()
-	var plant = obj.create_scene(player.position)
+	var curr_position = tile_map.map_to_local(curr_tile)
+	var plant = plant_cls.new().create_scene(curr_position)
 	add_child(plant)
-	print(self.get_children())
-	print('?')
