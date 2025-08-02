@@ -6,6 +6,9 @@ class_name Plant
 @export var growth_stages: int = 6
 var current_stage: float = 0.0
 @export var scene = preload("res://plants/plant.tscn")
+var tile_map: TileMapLayer
+var tile: Vector2i
+
 # Node reference
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var last_update: float = 0.0
@@ -15,9 +18,11 @@ var growth_rate: float = 0.1
 func _ready():
 	update_sprite()
 
-func create_scene(pos):
+func create_scene(curr_tile, curr_tile_map: TileMapLayer) -> Node2D:
 	var plant = scene.instantiate()
-	plant.position = pos
+	plant.position = curr_tile_map.map_to_local(curr_tile)
+	plant.tile = curr_tile
+	plant.tile_map = curr_tile_map
 	return plant
 	
 func _process(delta: float) -> void:
@@ -54,3 +59,6 @@ func is_fully_grown() -> bool:
 
 func can_grow() -> bool:
 	return true
+
+func influence() -> void:
+	pass
