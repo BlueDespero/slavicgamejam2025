@@ -11,12 +11,8 @@ script = ExtResource("1_nglan")
 ingredient_instance = ExtResource("3_rpiss")
 
 [node name="OrderTimeout" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(64, 32)
 scale = Vector2(4, 2)
 texture = ExtResource("2_mlqiw")
-
-[connection signal="timeout" from="OrderTimeout" to="." method="_on_order_timeout_timeout"]
