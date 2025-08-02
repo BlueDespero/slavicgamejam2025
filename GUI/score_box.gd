@@ -1,15 +1,13 @@
 extends ColorRect
 
-var score: Label
+func _process(delta: float) -> void:
+	size.x = $Score.size.x
+	size.y = $Score.size.y
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	score = get_child(0)
-	size.x = score.size.x
-	size.y = score.size.y
+	size.x = $Score.size.x
+	size.y = $Score.size.y
 	EventBus.change_score.connect(_set_score_text)
 	
 func _set_score_text(delta: int) -> void:
-	score.text = "Score: %d" % (int(score.text) + delta)
-	size.x = score.size.x
-	size.y = score.size.y
+	$Score.text = "Score: %d" % (int($Score.text) + delta)
