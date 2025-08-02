@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5hj6ean82pjl"]
+
+[ext_resource type="Script" uid="uid://bdo6b85skla7e" path="res://plants/Rose/rose_plant.gd" id="1_86kvf"]
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="1_knht5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86kvf"]
+atlas = ExtResource("1_knht5")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1cmd"]
+atlas = ExtResource("1_knht5")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egn05"]
+atlas = ExtResource("1_knht5")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2608w"]
+atlas = ExtResource("1_knht5")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53bl1"]
+atlas = ExtResource("1_knht5")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2kqe"]
+atlas = ExtResource("1_knht5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ucgp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86kvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1cmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egn05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2608w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53bl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2kqe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RoseScene" type="RigidBody2D"]
+script = ExtResource("1_86kvf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0ucgp")
