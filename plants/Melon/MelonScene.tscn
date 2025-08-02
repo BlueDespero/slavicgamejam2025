@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dou1fohrh5dtq"]
+
+[ext_resource type="Script" uid="uid://dmaytoimd4sq0" path="res://plants/Melon/melon_plant.gd" id="1_0o4an"]
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="2_jnrcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1c6u"]
+atlas = ExtResource("2_jnrcv")
+region = Rect2(176, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpddq"]
+atlas = ExtResource("2_jnrcv")
+region = Rect2(160, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4f6r"]
+atlas = ExtResource("2_jnrcv")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8nwd"]
+atlas = ExtResource("2_jnrcv")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub2ti"]
+atlas = ExtResource("2_jnrcv")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47uo3"]
+atlas = ExtResource("2_jnrcv")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ba1ih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1c6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpddq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4f6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8nwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub2ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47uo3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MelonScene" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_0o4an")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ba1ih")
