@@ -1,3 +1,3 @@
 extends Node
 
-signal plant_selected(plant_key: String)
+signal plant_selected(plant_cls)
