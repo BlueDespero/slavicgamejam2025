@@ -14,13 +14,12 @@ func _ready():
 	
 func _on_plant_selected(plant_cls):
 	var curr_tile = tile_map.local_to_map(player.position)
-	var curr_position = tile_map.map_to_local(curr_tile)
 	if planted_plants.get(curr_tile):
 		print("There is already plant at: ", curr_tile)
 		planted_plants[curr_tile].queue_free()
 	var plant_inst = plant_cls.new()
 	plant_inst._ready()
-	var plant = plant_inst.create_scene(curr_position)
+	var plant = plant_inst.create_scene(curr_tile, tile_map)
 	planted_plants[curr_tile] = plant
 	add_child(plant)
 
