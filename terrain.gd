@@ -17,10 +17,13 @@ func _ready() -> void:
 		for y in range(map_size.size.y):
 			var coords = Vector2i(x, y)
 			var atlas = get_cell_atlas_coords(coords)
-			if atlas[0] == -1:
-				set_cell(coords, 0, Vector2i(0, 0))
-			shadow[coords] = atlas[0]
-			water[coords] = atlas[1]
+			print("Initializing terrain at ", coords, " with atlas: ", atlas)
+			if atlas.x == -1:
+				atlas = Vector2i(0, 0)
+				set_cell(coords, 0, atlas)
+			shadow[coords] = atlas.x
+			water[coords] = atlas.y
+			print("Shadow at ", coords, ": ", shadow[coords], " Water: ", water[coords])
 	
 	update_terrain()
 	
@@ -41,10 +44,12 @@ func update_terrain() -> void:
 			if !water_change.has(coords):
 				water_change[coords] = 0
 
-			if shadow[coords] > 3:
-				water[coords] += 0.5
-			if shadow[coords] < 1:
-				water[coords] -= 0.
+			if shadow[coords] > 2 and water[coords] < 2:
+				water_change[coords] += 0.5
+				print("Shadow at ", coords, " is high: ", shadow[coords], " increasing water to ", water_change[coords])
+			if shadow[coords] < 1 and water[coords] > 0:
+				water_change[coords] -= 0.5
+				print("Shadow at ", coords, " is low: ", shadow[coords], " decreasing water to ", water_change[coords])
 				
 			if water[coords] > 1:
 				for neighbor in get_surrounding_cells(coords):
@@ -56,19 +61,20 @@ func update_terrain() -> void:
 
 					var water_diff = water[coords] - water[neighbor]
 					if water_diff > 0:
-						water_change[neighbor] += water_diff * 1/6
-						water_change[coords] -= water_diff * 1/6
+						water_change[neighbor] += water_diff * 0.1
+						water_change[coords] -= water_diff * 0.1
 		
 
 	for x in range(map_size.size.x):
 		for y in range(map_size.size.y):
 			var coords = Vector2i(x, y)
-			if water_change.has(coords):
+			if water_change.has(coords) and water_change[coords] != 0:
+				print("Applying water change at ", coords, ": ", water_change[coords])
 				water[coords] += water_change[coords]
 				if water[coords] < 0:
 					water[coords] = 0
-				elif water[coords] > 3:
-					water[coords] = 3
+				elif water[coords] > 2:
+					water[coords] = 2
 
 			var atlas = get_cell_atlas_coords(coords)
 			atlas[1] = floor(water[coords])
