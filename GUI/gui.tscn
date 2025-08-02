@@ -3,16 +3,19 @@
 [ext_resource type="Script" uid="uid://c3ey4vql5qa6y" path="res://GUI/top_bar.gd" id="1_cor1f"]
 [ext_resource type="PackedScene" uid="uid://bolly6ssnwqm5" path="res://GUI/order.tscn" id="2_cor1f"]
 [ext_resource type="Script" uid="uid://dqhvj5qegq3cx" path="res://GUI/bottom_bar.gd" id="2_q8o8l"]
-[ext_resource type="Script" uid="uid://bs0w4h868tkvk" path="res://GUI/score_box.gd" id="4_qtfhu"]
+[ext_resource type="Script" path="res://GUI/score_box.gd" id="4_qtfhu"]
 
 [node name="GUI" type="Node"]
 
 [node name="TopBar" type="HBoxContainer" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(0, 64)
-anchors_preset = 10
-anchor_right = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -800.0
+offset_right = -672.0
+offset_bottom = 64.0
 grow_horizontal = 2
+scale = Vector2(2.2, 2.2)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -25,19 +28,34 @@ autostart = true
 
 [node name="Orders" parent="TopBar" instance=ExtResource("2_cor1f")]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="BottomBar" type="HBoxContainer" parent="."]
-offset_top = 584.0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1100.0
+offset_top = -200.0
+offset_right = 52.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
 alignment = 1
 script = ExtResource("2_q8o8l")
 
 [node name="ScoreBox" type="ColorRect" parent="."]
-offset_left = 1038.0
-offset_top = 2.0
-offset_right = 1078.0
-offset_bottom = 42.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -200.0
+offset_bottom = 20.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
 color = Color(0, 0, 0, 1)
 script = ExtResource("4_qtfhu")
 

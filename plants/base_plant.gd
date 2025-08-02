@@ -41,9 +41,6 @@ func grow():
 	if current_stage < growth_stages - 1:
 		current_stage += growth_rate
 		update_sprite()
-		print(plant_name, " grew to stage: ", current_stage)
-	else:
-		print(plant_name, " is fully grown!")
 
 func update_sprite():
 	"""Update the sprite based on current stage"""

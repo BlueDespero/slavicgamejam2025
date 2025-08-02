@@ -8,7 +8,10 @@ atlas = ExtResource("1_11e83")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Ingredient" type="VBoxContainer"]
-custom_minimum_size = Vector2(32, 64)
+custom_minimum_size = Vector2(20, 0)
+offset_right = 16.0
+offset_bottom = 39.0
+theme_override_constants/separation = 0
 alignment = 1
 script = ExtResource("1_762re")
 
