@@ -1,15 +1,25 @@
 extends HBoxContainer
 @export var order_instance: PackedScene
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	EventBus.storage_updated.connect(_check_if_order_fulfilled)
+	
+func _check_if_order_fulfilled(plant_key: String, storage: Dictionary) -> void:
+	var any_orders_fulfilled:bool = true
+	
+	# loop hrough the orders and see if they can be completed
+	for order in get_children().filter(func(n): return n is HBoxContainer):
+		var result: Array = order.order_fulfilled(storage)
+		var fulfilled: bool = result[0]
+		if fulfilled:
+			# update storage with consumed goods
+			storage = result[1]
+			order.cash_in_points()
+			remove_child(order)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	if any_orders_fulfilled:
+		# send back the new values to global storage
+		EventBus.set_storage.emit(storage)
 
 func _on_new_order_timer_timeout() -> void:
 	if get_children().filter(func(n): return n is HBoxContainer).size() < Constants.MAX_NUMBER_ORDERS:

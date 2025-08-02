@@ -52,7 +52,7 @@ func trigger_action() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 
-func _update_button_text(plant_key: String, new_value: int) -> void:
+func _update_button_text(plant_key: String, storage: Dictionary) -> void:
 	if plant_key == button_name:
 		var plant = Constants.plants[plant_key]
-		text = plant_button_text_template % [plant.name, plant.key - 48, new_value]
+		text = plant_button_text_template % [plant.name, plant.key - 48, storage[plant_key]]

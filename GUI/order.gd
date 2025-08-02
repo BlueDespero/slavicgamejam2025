@@ -2,6 +2,24 @@ extends HBoxContainer
 @export var ingredient_instance: PackedScene
 const spritesheet = preload("res://plants/plant_assets/Crop_Spritesheet.png")
 var rng = RandomNumberGenerator.new()
+var order_details: Dictionary = {}
+
+func _ready() -> void:
+	generate_order()
+
+func order_fulfilled(storage: Dictionary)->Array:
+	for ingredient in order_details.keys():
+		if storage[ingredient] < order_details[ingredient]:
+			return [false, {}]
+			
+	for ingredient in order_details.keys():
+		storage[ingredient] -= order_details[ingredient]
+
+	return [true, storage]
+	
+func cash_in_points() -> void:
+	# TODO make scoreing dynamic
+	EventBus.change_score.emit(100)
 
 func generate_order() -> void:
 	var no_ingredience = rng.randi_range(1,Constants.MAX_INGREDIENCE_PER_ORDER)
@@ -12,6 +30,7 @@ func generate_order() -> void:
 			continue
 		picked_ingredients.append(ingredient.name)
 		var how_much_of_this_ingredience = randi_range(1, Constants.MAX_NUMBER_OF_INGREDIENCE)
+		order_details[ingredient.name] = how_much_of_this_ingredience
 		var new_ingredient = construct_ingredient(ingredient, how_much_of_this_ingredience)
 		add_child(new_ingredient)
 
@@ -35,10 +54,3 @@ func get_icon(plant: Dictionary) -> AtlasTexture:
 		cell_size
 	)
 	return atlas_texture
-
-func _ready() -> void:
-	generate_order() 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
