@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://bripo8vwwfkve"]
+
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="1_2ovk3"]
+[ext_resource type="Script" uid="uid://ch456egdyeh62" path="res://plants/Tulip/tulip_plant.gd" id="1_15avi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15avi"]
+atlas = ExtResource("1_2ovk3")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7mqe"]
+atlas = ExtResource("1_2ovk3")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7neko"]
+atlas = ExtResource("1_2ovk3")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jloed"]
+atlas = ExtResource("1_2ovk3")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5vuu"]
+atlas = ExtResource("1_2ovk3")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou4uo"]
+atlas = ExtResource("1_2ovk3")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd1tv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15avi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7mqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7neko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jloed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5vuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou4uo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TulipScene" type="RigidBody2D"]
+script = ExtResource("1_15avi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gd1tv")

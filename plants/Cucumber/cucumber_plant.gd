@@ -1,9 +1,8 @@
-# WheatPlant.gd
 extends Plant
-class_name WheatPlant
+class_name CucumberPlant
 
 func _ready():
-	plant_name = "Wheat"
+	plant_name = "Cucumber"
 	growth_stages = 6
 	super._ready()
 
