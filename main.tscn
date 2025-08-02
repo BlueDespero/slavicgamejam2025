@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgifmsx4lhem8"]
+[gd_scene load_steps=5 format=3 uid="uid://cgifmsx4lhem8"]
 
 [ext_resource type="Script" uid="uid://bewb1j0gyhyrk" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://1al25n8y6pmm" path="res://GUI/gui.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cqpw0gnmoueuk" path="res://map/map.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://dd5sir7hmbkjj" path="res://game_data.gd" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://dm2ktqg0ki3ss" path="res://hud.gd" id="5_lquwl"]
+[ext_resource type="Script" path="res://hud.gd" id="5_lquwl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
@@ -14,13 +13,6 @@ script = ExtResource("1_ig7tw")
 [node name="GUI" parent="." instance=ExtResource("2_0xm2m")]
 
 [node name="Map" parent="." instance=ExtResource("3_h2yge")]
-
-[node name="GameData" type="Node" parent="."]
-script = ExtResource("4_1bvp3")
-
-[node name="RandomlyAddToStorage" type="Timer" parent="GameData"]
-wait_time = 5.0
-autostart = true
 
 [node name="GameOverTimer" type="Timer" parent="."]
 wait_time = 195.0
@@ -78,5 +70,4 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "1,2,3... Farm!"
 
-[connection signal="timeout" from="GameData/RandomlyAddToStorage" to="GameData" method="_on_timer_timeout"]
 [connection signal="pressed" from="HUD/StartGameButton" to="HUD" method="_on_start_game_button_pressed"]
