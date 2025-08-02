@@ -9,7 +9,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	target_position = global_position
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if (
 		event is InputEventMouseButton 
 		and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
