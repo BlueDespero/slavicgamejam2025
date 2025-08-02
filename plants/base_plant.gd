@@ -8,6 +8,8 @@ var current_stage: int = 0
 @export var scene = preload("res://plants/plant.tscn")
 # Node reference
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var last_update: float = 0.0
+var update_interval: float = 1.0
 
 func _ready():
 	update_sprite()
@@ -16,6 +18,13 @@ func create_scene(pos):
 	var plant = scene.instantiate()
 	plant.position = pos
 	return plant
+	
+func _process(delta: float) -> void:
+	# Update the terrain periodically
+	last_update += delta
+	if last_update >= update_interval:
+		last_update = 0.0
+		grow()
 
 func grow():
 	"""Grow to the next stage"""
