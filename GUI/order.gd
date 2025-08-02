@@ -6,6 +6,10 @@ var order_details: Dictionary = {}
 
 func _ready() -> void:
 	generate_order()
+	
+func _process(delta: float) -> void:
+	var red_shade = 1 - $OrderTimeout.time_left / $OrderTimeout.wait_time
+	$Background.modulate = Color(red_shade, 1 - red_shade, 1 - red_shade)
 
 func order_fulfilled(storage: Dictionary)->Array:
 	for ingredient in order_details.keys():
@@ -54,3 +58,9 @@ func get_icon(plant: Dictionary) -> AtlasTexture:
 		cell_size
 	)
 	return atlas_texture
+
+
+func _on_order_timeout_timeout() -> void:
+	# TODO dynamic scoring * discount
+	EventBus.change_score.emit(-100)
+	queue_free()
