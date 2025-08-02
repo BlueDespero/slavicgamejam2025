@@ -1,30 +1,32 @@
 extends Button
 
 var button_icon: Texture2D
+var assigned_key: Key
 var button_name: String
-var assigned_key: Key  
 var cls_instance: GDScript
+var plant_button_text_template: String = "%s (%d) \nIn strore: %d"
 
-func initialize_from_grid(spritesheet: Texture2D, grid_x: int, grid_y: int, cell_size: int, name: String, key: Key, cls_name: String) -> void:
-	var x = grid_x * cell_size
-	var y = grid_y * cell_size
+func initialize_from_grid(spritesheet: Texture2D, plant: Dictionary, cell_size: int) -> void:
+	var x = plant.sprite_positions.x * cell_size
+	var y = plant.sprite_positions.y * cell_size
 
 	var atlas_texture = AtlasTexture.new()
 	atlas_texture.atlas = spritesheet
 	atlas_texture.region = Rect2(x, y, cell_size, cell_size)
-
 	button_icon = atlas_texture
-	button_name = name
-	assigned_key = key
+	
+	button_name = plant.name
+	assigned_key = plant.key
 
-	text = button_name
+	text = plant_button_text_template % [plant.name, plant.key - 48, 0]
+	add_theme_font_size_override("font_size", 12)
 	icon = button_icon
 	cls_instance = {
 		'Tulip': TulipPlant,
 		'Turnip': TurnipPlant,
 		'Rose': RosePlant,
 		'Cucumber': CucumberPlant,
-	}[cls_name]
+	}[plant.name]
 
 	icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP

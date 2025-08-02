@@ -5,17 +5,12 @@ const spritesheet = preload("res://plants/plant_assets/Crop_Spritesheet.png")
 func create_identifier_buttons(spritesheet: Texture2D) -> Array:
 	var buttons = []
 	
-	for plant in Constants.plants:
+	for plant in Constants.plants.values():
 		var button = plant_button.instantiate()
 		button.initialize_from_grid(
 			spritesheet, 
-			plant.sprite_positions.x, 
-			plant.sprite_positions.y, 
-			16, 
-			plant.name,
-			plant.key,
-			plant.class_name,
-			)
+			plant,
+			16)
 		buttons.append(button)
 	
 	return buttons

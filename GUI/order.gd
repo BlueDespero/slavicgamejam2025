@@ -7,7 +7,7 @@ func generate_order() -> void:
 	var no_ingredience = rng.randi_range(1,Constants.MAX_INGREDIENCE_PER_ORDER)
 	var picked_ingredients = []
 	while get_children().filter(func(n): return n is VBoxContainer).size() < no_ingredience:
-		var ingredient = Constants.plants.pick_random()
+		var ingredient = Constants.plants.values().pick_random()
 		if ingredient.name in picked_ingredients:
 			continue
 		picked_ingredients.append(ingredient.name)
