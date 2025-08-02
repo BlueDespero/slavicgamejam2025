@@ -26,7 +26,6 @@ func _ready() -> void:
 	for button in identifier_buttons:
 		add_child(button)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
