@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddsss2s1tqv2a"]
+
+[ext_resource type="Script" uid="uid://blc3tkiqotyrx" path="res://plants/Turnip/turnip_plant.gd" id="1_e7we2"]
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="1_v8k58"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7we2"]
+atlas = ExtResource("1_v8k58")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtobl"]
+atlas = ExtResource("1_v8k58")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak8om"]
+atlas = ExtResource("1_v8k58")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ebv"]
+atlas = ExtResource("1_v8k58")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gyb0"]
+atlas = ExtResource("1_v8k58")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxa4w"]
+atlas = ExtResource("1_v8k58")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obfkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7we2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtobl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ak8om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ebv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gyb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxa4w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TurnipScene" type="RigidBody2D"]
+script = ExtResource("1_e7we2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_obfkb")
