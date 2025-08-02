@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgcagvcx8dfbu"]
+
+[ext_resource type="Script" uid="uid://d32sailbybpd3" path="res://plants/Eggplant/eggplant_plant.gd" id="1_882d8"]
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="2_sm6kc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nm4p"]
+atlas = ExtResource("2_sm6kc")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrhor"]
+atlas = ExtResource("2_sm6kc")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f34i"]
+atlas = ExtResource("2_sm6kc")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmeuq"]
+atlas = ExtResource("2_sm6kc")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgikn"]
+atlas = ExtResource("2_sm6kc")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rk4m"]
+atlas = ExtResource("2_sm6kc")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6m3bi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nm4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrhor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f34i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmeuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgikn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rk4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EggplantScene" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_882d8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_6m3bi")

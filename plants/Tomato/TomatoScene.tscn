@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5k0e64xfuvqy"]
+
+[ext_resource type="Script" uid="uid://pkhjxadptcw4" path="res://plants/Tomato/tomato_plant.gd" id="1_hcgq0"]
+[ext_resource type="Texture2D" uid="uid://ccodkkt1qxxtr" path="res://plants/plant_assets/Crop_Spritesheet.png" id="2_qb0sn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv8x3"]
+atlas = ExtResource("2_qb0sn")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20bkv"]
+atlas = ExtResource("2_qb0sn")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubnko"]
+atlas = ExtResource("2_qb0sn")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t8h6"]
+atlas = ExtResource("2_qb0sn")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08slh"]
+atlas = ExtResource("2_qb0sn")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cucos"]
+atlas = ExtResource("2_qb0sn")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82hkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv8x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20bkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubnko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t8h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08slh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cucos")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TomatoScene" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_hcgq0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_82hkg")

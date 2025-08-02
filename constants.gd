@@ -25,4 +25,25 @@ var plants = {
 		"sprite_positions": {"x": 6, "y": 1},
 		"key": KEY_4,
 	},	
+	"Tomato": {
+		"name": "Tomato",
+		"sprite_positions": {"x": 0, "y": 2},
+		"key": KEY_5,
+	},	
+	"Melon": {
+		"name": "Melon",
+		"sprite_positions": {"x": 6, "y": 2},
+		"key": KEY_6,
+	},	
+	"Eggplant": {
+		"name": "Eggplant",
+		"sprite_positions": {"x": 0, "y": 3},
+		"key": KEY_7,
+	},	
+	"Lemon": {
+		"name": "Lemon",
+		"sprite_positions": {"x": 6, "y": 3},
+		"key": KEY_8,
+	},	
+
 }
