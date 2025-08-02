@@ -26,7 +26,7 @@ func initialize_from_grid(spritesheet: Texture2D, plant: Dictionary, cell_size: 
 		'Turnip': TurnipPlant,
 		'Rose': RosePlant,
 		'Cucumber': CucumberPlant,
-	}[plant.class_name]
+	}[plant.name]
 
 	icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
