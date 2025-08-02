@@ -1,5 +1,5 @@
 extends HBoxContainer
-@export var recipe_instance: PackedScene
+@export var order_instance: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_new_order_timer_timeout() -> void:
-	var NewOrder = recipe_instance.instantiate()
+	var NewOrder = order_instance.instantiate()
 	add_child(NewOrder)
