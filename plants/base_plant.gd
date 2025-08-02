@@ -5,12 +5,17 @@ class_name Plant
 @export var plant_name: String = "Base Plant"
 @export var growth_stages: int = 6
 var current_stage: int = 0
-
+@export var scene = preload("res://plants/plant.tscn")
 # Node reference
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
 	update_sprite()
+
+func create_scene(pos):
+	var plant = scene.instantiate()
+	plant.position = pos
+	return plant
 
 func grow():
 	"""Grow to the next stage"""

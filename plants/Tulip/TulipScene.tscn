@@ -54,6 +54,7 @@ animations = [{
 }]
 
 [node name="TulipScene" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_15avi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
