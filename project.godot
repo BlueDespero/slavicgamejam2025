@@ -21,6 +21,12 @@ Constants="*res://constants.gd"
 EventBus="*res://EventBus.gd"
 GameData="*res://game_data.gd"
 
+[display]
+
+window/size/viewport_width=3200
+window/size/viewport_height=1800
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="SlavicGameJam2025"
