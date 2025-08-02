@@ -13,7 +13,12 @@ func initialize_storage() -> void:
 		storage[plant] = 0
 
 func _set_storage(new_storage: Dictionary) -> void:
-	storage = new_storage
+	if new_storage != storage:	
+		storage = new_storage
+	for key in storage.keys():
+		EventBus.storage_updated.emit(key, storage)
+		
+		
 
 func _update_storage(key: String, delta: int) -> void:
 	if key in storage:
