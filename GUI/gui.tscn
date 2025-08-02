@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1al25n8y6pmm"]
 
 [ext_resource type="Script" uid="uid://c3ey4vql5qa6y" path="res://GUI/top_bar.gd" id="1_cor1f"]
-[ext_resource type="PackedScene" uid="uid://bolly6ssnwqm5" path="res://GUI/recipe.tscn" id="2_cor1f"]
+[ext_resource type="PackedScene" uid="uid://bolly6ssnwqm5" path="res://GUI/order.tscn" id="2_cor1f"]
 [ext_resource type="Script" uid="uid://dqhvj5qegq3cx" path="res://GUI/bottom_bar.gd" id="2_q8o8l"]
 [ext_resource type="PackedScene" uid="uid://dsiivn6pegbof" path="res://GUI/plant_button.tscn" id="3_q8o8l"]
 
@@ -17,10 +17,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("1_cor1f")
-recipe_instance = ExtResource("2_cor1f")
+order_instance = ExtResource("2_cor1f")
 
 [node name="NewOrderTimer" type="Timer" parent="TopBar"]
-wait_time = 10.0
+wait_time = 2.0
 autostart = true
 
 [node name="Recipe" parent="TopBar" instance=ExtResource("2_cor1f")]

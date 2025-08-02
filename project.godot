@@ -15,6 +15,10 @@ run/main_scene="uid://cgifmsx4lhem8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*res://constants.gd"
+
 [dotnet]
 
 project/assembly_name="SlavicGameJam2025"

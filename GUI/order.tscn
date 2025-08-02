@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bolly6ssnwqm5"]
+
+[ext_resource type="Script" uid="uid://cuqxs6wy1miq2" path="res://GUI/order.gd" id="1_nglan"]
+[ext_resource type="Texture2D" uid="uid://qrpjhtnxdn56" path="res://assets/Tiles/Large tiles/Thick outline/tile_0003.png" id="2_mlqiw"]
+[ext_resource type="PackedScene" uid="uid://dgv2q742w8cgp" path="res://GUI/ingredient.tscn" id="3_rpiss"]
+
+[node name="Order" type="HBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+alignment = 1
+script = ExtResource("1_nglan")
+ingredient_instance = ExtResource("3_rpiss")
+
+[node name="OrderTimeout" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 32)
+scale = Vector2(4, 2)
+texture = ExtResource("2_mlqiw")
