@@ -1,8 +1,8 @@
 extends Plant
-class_name TomatoPlant
+class_name TulipPlant
 
 func _ready():
-	plant_name = "Tomato"
+	plant_name = "Tulip"
 	growth_stages = 6
 	super._ready()
 
