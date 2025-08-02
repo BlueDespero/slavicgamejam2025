@@ -3,8 +3,9 @@ extends Button
 var button_icon: Texture2D
 var button_name: String
 var assigned_key: Key  
+var cls_instance: GDScript
 
-func initialize_from_grid(spritesheet: Texture2D, grid_x: int, grid_y: int, cell_size: int, name: String, key: Key) -> void:
+func initialize_from_grid(spritesheet: Texture2D, grid_x: int, grid_y: int, cell_size: int, name: String, key: Key, cls_name: String) -> void:
 	var x = grid_x * cell_size
 	var y = grid_y * cell_size
 
@@ -18,6 +19,12 @@ func initialize_from_grid(spritesheet: Texture2D, grid_x: int, grid_y: int, cell
 
 	text = button_name
 	icon = button_icon
+	cls_instance = {
+		'Tulip': TulipPlant,
+		'Turnip': TurnipPlant,
+		'Rose': RosePlant,
+		'Cucumber': CucumberPlant,
+	}[cls_name]
 
 	icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
@@ -37,7 +44,7 @@ func _input(event: InputEvent) -> void:
 
 func trigger_action() -> void:
 	print("Button triggered by hotkey: " + button_name)
-	EventBus.plant_selected.emit(button_name)
+	EventBus.plant_selected.emit(cls_instance)
 	
 	modulate = Color(1.2, 1.2, 1.2)
 	var tween = create_tween()
