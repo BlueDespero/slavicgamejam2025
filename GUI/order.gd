@@ -105,6 +105,7 @@ func get_icon(plant: Dictionary) -> AtlasTexture:
 
 
 func _on_order_timeout_timeout() -> void:
-	# TODO dynamic scoring * discount
-	EventBus.change_score.emit(-calculate_score_for_order())
+	EventBus.change_score.emit(
+		int(-calculate_score_for_order() * Constants.FAILED_ORDER_PENALTY_DISCONT)
+	)
 	queue_free()

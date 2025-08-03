@@ -19,6 +19,6 @@ func _check_if_order_fulfilled(plant_key: String, storage: Dictionary) -> void:
 			EventBus.set_storage.emit(last_storage)
 
 func _on_new_order_timer_timeout() -> void:
-	if get_children().filter(func(n): return n is HBoxContainer).size() < Constants.MAX_NUMBER_ORDERS:
+	if get_children().filter(func(n): return n is VBoxContainer ).size() < Constants.MAX_NUMBER_ORDERS:
 		var NewOrder = order_instance.instantiate()
 		add_child(NewOrder)
