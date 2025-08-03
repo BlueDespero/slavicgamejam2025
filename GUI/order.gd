@@ -1,6 +1,7 @@
 extends VBoxContainer
 @export var ingredient_instance: PackedScene
 const spritesheet = preload("res://plants/plant_assets/Crop_Spritesheet.png")
+const ORDER_TRANSPARENCY = 0.75
 var rng = RandomNumberGenerator.new()
 var order_details: Dictionary = {}
 
@@ -10,7 +11,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	var red_shade = 1 - $OrderTimeout.time_left / $OrderTimeout.wait_time
-	$Background.modulate = Color(red_shade, 1 - red_shade, 1 - red_shade)
+	$Background.modulate = Color(red_shade, 1 - red_shade, 1 - red_shade, ORDER_TRANSPARENCY)
 
 func order_fulfilled(storage: Dictionary)->Array:
 	
