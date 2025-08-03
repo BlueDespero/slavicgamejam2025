@@ -45,7 +45,7 @@ text = "[center][font_size=42][color=green]🌱 FARMELATRO 🌱[/color][/font_si
 
 [font_size=26]Welcome, Farmer![/font_size]
 
-[font_size=18]You are a farmer on an endless field of possibilities. Finish as many orders as possible, as fast as possible to score as many points as you can![/font_size]
+[font_size=18]You are a farmer on an endless field of possibilities. Finish as many orders as possible, as fast as possible, to score as many points as you can![/font_size]
 
 [font_size=26][color=green]🚶 MOVEMENT & CONTROLS[/color][/font_size]
 
@@ -59,12 +59,11 @@ There are different types of fields - some of them are in direct sun and they ar
 
 [font_size=18]Btw, did you hear about symbiosis? Some of your actions can benefit your total score!
 
-For example: if you plant a lemon tree it will produce shade on neighbor fields. Shady fields can produce water, and I can tell you in secret that cucumbers like water.[/font_size]
+For example, if you plant a lemon tree, it will produce shade on neighboring fields. Shady fields can produce water, and I can tell you in secret that cucumbers like water.[/font_size]
 
 [font_size=18]Plants have feelings - roses like melons, but they can't stand lemons. If the plants are around their friends and away from enemies, they grow faster![/font_size]
 
-[center][font_size=26][color=green]Good luck! 🚜[/color][/font_size][/center]
-"
+[center][font_size=26][color=green]Good luck! 🚜[/color][/font_size][/center]"
 autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -111,6 +110,7 @@ script = ExtResource("6_7mycd")
 
 [node name="GameOverTimer" type="Timer" parent="GameOverTimerOnScreen"]
 wait_time = 200.0
+one_shot = true
 
 [node name="ScoreSummaryHUD" type="CanvasLayer" parent="."]
 visible = false

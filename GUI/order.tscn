@@ -36,4 +36,9 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 
+[node name="OrderDoneGreen" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="OrderTimeout" to="." method="_on_order_timeout_timeout"]
+[connection signal="timeout" from="OrderDoneGreen" to="." method="_on_order_done_green_timeout"]

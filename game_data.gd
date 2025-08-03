@@ -3,6 +3,9 @@ extends Node
 var score: int = 0
 var storage: Dictionary = {}
 
+func _process(delta: float) -> void:
+	EventBus.check_orders.emit(storage)
+
 func _ready() -> void:
 	initialize_storage()
 	EventBus.set_storage.connect(_set_storage)

@@ -10,11 +10,14 @@ func _ready() -> void:
 	EventBus.start_game_button_pressed.connect($OrderTimeout.start)
 
 func _process(delta: float) -> void:
-	var red_shade = 1 - $OrderTimeout.time_left / $OrderTimeout.wait_time
-	$Background.modulate = Color(red_shade, 1 - red_shade, 1 - red_shade, ORDER_TRANSPARENCY)
+	if $OrderDoneGreen.is_stopped():
+		var red_shade = 1 - $OrderTimeout.time_left / $OrderTimeout.wait_time
+		$Background.modulate = Color(red_shade, 1 - red_shade, 1 - red_shade, ORDER_TRANSPARENCY)
+	else:
+		$Background.modulate = Color(0, 1, 0, ORDER_TRANSPARENCY)
 
-func order_fulfilled(storage: Dictionary)->Array:
-	
+
+func order_fulfilled(storage: Dictionary)->Array:	
 	for ingredient in order_details.keys():
 		if storage[ingredient] < order_details[ingredient]:
 			return [false, {}]
@@ -26,6 +29,7 @@ func order_fulfilled(storage: Dictionary)->Array:
 	
 func cash_in_points() -> void:
 	EventBus.change_score.emit(calculate_score_for_order())
+	$OrderDoneGreen.start()
 	
 func calculate_score_for_order() -> int:
 	var total_score = 0
@@ -109,3 +113,10 @@ func _on_order_timeout_timeout() -> void:
 		int(-calculate_score_for_order() * Constants.FAILED_ORDER_PENALTY_DISCONT)
 	)
 	queue_free()
+
+func _on_order_done_green_timeout() -> void:
+	queue_free()
+	
+func _on_game_over() -> void:
+	$OrderTimeout.stop()
+	$OrderDoneGreen.stop()
