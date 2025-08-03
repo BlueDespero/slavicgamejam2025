@@ -35,37 +35,37 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 403.0
-offset_top = -512.0
+offset_top = -490.0
 offset_right = -401.0
 offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center][font_size=44][color=green]🌱 FARMELATRO 🌱[/color][/font_size][/center]
+text = "[center][font_size=42][color=green]🌱 FARMELATRO 🌱[/color][/font_size][/center]
 
-[font_size=28]Welcome, Farmer![/font_size]
+[font_size=26]Welcome, Farmer![/font_size]
 
-[font_size=20]You are a farmer on an endless field of possibilities. Finish as many orders as possible, as fast as possible to score as many points as you can![/font_size]
+[font_size=18]You are a farmer on an endless field of possibilities. Finish as many orders as possible, as fast as possible to score as many points as you can![/font_size]
 
-[font_size=28][color=green]🌾 THE PLANTS & FIELDS[/color][/font_size]
+[font_size=26][color=green]🌾 THE PLANTS & FIELDS[/color][/font_size]
 
-[font_size=20]You can plant [b]8 types of plants[/b]. Each plant has specific requirements to grow. 
+[font_size=18]You can plant [b]8 types of plants[/b]. Each plant has specific requirements to grow. 
 
 Remember also that there are different types of fields - some of them are in direct sun and they are dry, others are pure water. Not all plants can grow anywhere.[/font_size]
 
-[font_size=28][color=green]🚶 MOVEMENT & CONTROLS[/color][/font_size]
+[font_size=26][color=green]🚶 MOVEMENT & CONTROLS[/color][/font_size]
 
-[font_size=20]• [b]Move:[/b] Click on any field to walk there
+[font_size=18]• [b]Move:[/b] Click on any field to walk there
 • [b]Plant:[/b] Press keys 1-8 to plant different crops (check the bottom bar for plant assignments)
 • [b]Harvest:[/b] Walk to ready crops and press SPACEBAR[/font_size]
 
-[font_size=28][color=green]🤝 SYMBIOSIS SECRETS[/color][/font_size]
+[font_size=26][color=green]🤝 SYMBIOSIS SECRETS[/color][/font_size]
 
-[font_size=20]Btw, did you hear about symbiosis? Some of your actions can benefit your total score!
+[font_size=18]Btw, did you hear about symbiosis? Some of your actions can benefit your total score!
 
 For example: if you plant a lemon tree it will produce shade on neighbor fields. Shady fields can produce water, and I can tell you in secret that cucumbers like water.[/font_size]
 
-[center][font_size=28][color=green]Good luck! 🚜[/color][/font_size][/center]
+[center][font_size=26][color=green]Good luck! 🚜[/color][/font_size][/center]
 "
 autowrap_mode = 2
 horizontal_alignment = 1
@@ -79,7 +79,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -296.0
-offset_top = -160.0
+offset_top = -124.0
 offset_right = 306.0
 offset_bottom = -5.0
 grow_horizontal = 2

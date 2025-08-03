@@ -1,8 +1,13 @@
 extends HBoxContainer
 @export var order_instance: PackedScene
 
+var game_stopped: bool = false
+
 func _ready() -> void:
+	game_stopped = false
 	EventBus.storage_updated.connect(_check_if_order_fulfilled)
+	EventBus.game_over.connect(_on_game_over)
+
 	$NewOrderTimer.stop()
 	$Orders/OrderTimeout.stop()
 	EventBus.start_game_button_pressed.connect($NewOrderTimer.start)
@@ -19,6 +24,11 @@ func _check_if_order_fulfilled(plant_key: String, storage: Dictionary) -> void:
 			EventBus.set_storage.emit(last_storage)
 
 func _on_new_order_timer_timeout() -> void:
+	if game_stopped:
+		return
 	if get_children().filter(func(n): return n is VBoxContainer).size() < Constants.MAX_NUMBER_ORDERS:
 		var NewOrder = order_instance.instantiate()
 		add_child(NewOrder)
+
+func _on_game_over():
+	game_stopped = true

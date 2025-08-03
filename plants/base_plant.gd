@@ -17,8 +17,11 @@ var update_interval: float = 1.0
 
 var jump_position: int = 0
 var jump_timer: float = 0.0
+var game_stopped: bool = false
 
 func _ready():
+	EventBus.game_over.connect(_on_game_over)
+	game_stopped = false
 	update_sprite()
 
 func create_scene(curr_tile, curr_tile_map: TileMapLayer) -> Node2D:
@@ -56,6 +59,9 @@ func make_it_jump(delta: float):
 
 func grow():
 	"""Grow to the next stage"""
+	if game_stopped:
+		return
+	
 	if not can_grow():
 		print(plant_name, " can't grow on this field")
 		return 
@@ -81,3 +87,6 @@ func can_grow() -> bool:
 
 func influence() -> void:
 	pass
+
+func _on_game_over():
+	game_stopped = true
