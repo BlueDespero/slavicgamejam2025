@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://1al25n8y6pmm"]
+
+[ext_resource type="Script" uid="uid://c3ey4vql5qa6y" path="res://GUI/top_bar.gd" id="1_cor1f"]
+[ext_resource type="PackedScene" uid="uid://bolly6ssnwqm5" path="res://GUI/order.tscn" id="2_cor1f"]
+[ext_resource type="Script" uid="uid://dqhvj5qegq3cx" path="res://GUI/bottom_bar.gd" id="2_q8o8l"]
+[ext_resource type="Script" uid="uid://bs0w4h868tkvk" path="res://GUI/score_box.gd" id="4_qtfhu"]
+
+[node name="GUI" type="Node"]
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -952.0
+offset_right = -261.0
+offset_bottom = 96.0
+grow_horizontal = 2
+scale = Vector2(2.2, 2.2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cor1f")
+order_instance = ExtResource("2_cor1f")
+
+[node name="NewOrderTimer" type="Timer" parent="TopBar"]
+wait_time = 10.0
+autostart = true
+
+[node name="Orders" parent="TopBar" instance=ExtResource("2_cor1f")]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -136.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+alignment = 1
+script = ExtResource("2_q8o8l")
+
+[node name="ScoreBox" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -200.0
+offset_bottom = 20.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_qtfhu")
+
+[node name="Score" type="Label" parent="ScoreBox"]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 23.0
+text = "Score: 0"
+
+[connection signal="timeout" from="TopBar/NewOrderTimer" to="TopBar" method="_on_new_order_timer_timeout"]

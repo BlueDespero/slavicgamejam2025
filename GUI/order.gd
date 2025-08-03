@@ -76,7 +76,6 @@ func generate_order() -> void:
 		order_details[ingredient.name] = how_much_of_this_ingredience
 		var new_ingredient = construct_ingredient(ingredient, how_much_of_this_ingredience)
 		ingredients_box.add_child(new_ingredient)
-
 	var order_points_label = get_node("ExtraInfo/OrderPoints")	
 	var order_points = calculate_score_for_order()
 	order_points_label.text = "Max %d pts" % order_points
@@ -105,6 +104,7 @@ func get_icon(plant: Dictionary) -> AtlasTexture:
 
 
 func _on_order_timeout_timeout() -> void:
-	# TODO dynamic scoring * discount
-	EventBus.change_score.emit(-calculate_score_for_order())
+	EventBus.change_score.emit(
+		int(-calculate_score_for_order() * Constants.FAILED_ORDER_PENALTY_DISCONT)
+	)
 	queue_free()

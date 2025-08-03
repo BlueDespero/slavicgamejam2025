@@ -1,9 +1,11 @@
 extends Node
 
-const MAX_NUMBER_ORDERS: int = 6
+const MAX_NUMBER_ORDERS: int = 5
 const MAX_NUMBER_OF_INGREDIENCE: int = 4
 const MAX_INGREDIENCE_PER_ORDER: int = 4
 const CELL_SIZE: int = 64
+const FAILED_ORDER_PENALTY_DISCONT = 0.2
+
 var plants = {
 	"Turnip": {
 		"name": "Turnip",
