@@ -13,7 +13,7 @@ var tile: Vector2i
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var last_update: float = 0.0
 var update_interval: float = 1.0
-var growth_rate: float = 0.1
+@export var growth_rate: float = 0.1
 
 var jump_position: int = 0
 var jump_timer: float = 0.0

@@ -55,3 +55,30 @@ var plants = {
 	},	
 
 }
+
+var plant_interactions = {
+	"Turnip": {
+		"Rose": 1, "Cucumber": -1, "Tulip": 2, "Tomato": -2, "Melon": 3, "Eggplant": -3, "Lemon": 0
+	},
+	"Rose": {
+		"Turnip": 1, "Cucumber": 1, "Tulip": 2, "Tomato": 3, "Melon": -1, "Eggplant": -2, "Lemon": -3
+	},
+	"Cucumber": {
+		"Turnip": -1, "Rose": 1, "Tulip": 3, "Tomato": 2, "Melon": 0, "Eggplant": 2, "Lemon": 3
+	},
+	"Tulip": {
+		"Turnip": 2, "Rose": 2, "Cucumber": 3, "Tomato": 0, "Melon": 0, "Eggplant": 0, "Lemon": 0
+	},
+	"Tomato": {
+		"Turnip": -2, "Rose": 3, "Cucumber": 2, "Tulip": 0, "Melon": 1, "Eggplant": -1, "Lemon": -2
+	},
+	"Melon": {
+		"Turnip": 3, "Rose": -1, "Cucumber": 0, "Tulip": 0, "Tomato": 1, "Eggplant": 2, "Lemon": 1
+	},
+	"Eggplant": {
+		"Turnip": -3, "Rose": -2, "Cucumber": 2, "Tulip": 0, "Tomato": -1, "Melon": 2, "Lemon": -3
+	},
+	"Lemon": {
+		"Turnip": 0, "Rose": -3, "Cucumber": 3, "Tulip": 0, "Tomato": -2, "Melon": 1, "Eggplant": -3
+	}
+	}
