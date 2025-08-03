@@ -14,4 +14,5 @@ func update_sprite():
 func can_grow() -> bool:
 	"""Roses likes dry soil"""
 	var water_level = tile_map.get_water(tile)
-	return water_level == 0
+	growth_rate = 0.2 if water_level < 1 else 0.05
+	return true
