@@ -11,14 +11,13 @@
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -800.0
-offset_right = -672.0
-offset_bottom = 64.0
+offset_left = -952.0
+offset_right = -261.0
+offset_bottom = 96.0
 grow_horizontal = 2
 scale = Vector2(2.2, 2.2)
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
 script = ExtResource("1_cor1f")
 order_instance = ExtResource("2_cor1f")
 
