@@ -8,7 +8,7 @@ var order_details: Dictionary = {}
 func _ready() -> void:
 	generate_order()
 	EventBus.start_game_button_pressed.connect($OrderTimeout.start)
-	
+
 func _process(delta: float) -> void:
 	var red_shade = 1 - $OrderTimeout.time_left / $OrderTimeout.wait_time
 	$Background.modulate = Color(red_shade, 1 - red_shade, 1 - red_shade, ORDER_TRANSPARENCY)
