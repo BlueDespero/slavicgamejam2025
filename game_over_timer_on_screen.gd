@@ -18,6 +18,7 @@ func _set_game_over_score(delta):
 
 func _on_game_over_timer_timeout() -> void:
 	$GameOverTimer.stop()
+	EventBus.game_over.emit()
 	var score_hud = get_parent().get_node("ScoreSummaryHUD")
 	var score_label = score_hud.get_node("Score")
 	score_label.text = "%d pts" % score

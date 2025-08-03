@@ -11,10 +11,13 @@ var map_size: Rect2i
 
 var shadow = {}
 var water = {}
+var game_stopped: bool = false
 
 func _ready() -> void:
 	# Initialize the terrain layer
 	# set the undefined tiles to a default tile
+	EventBus.game_over.connect(_on_game_over)
+	game_stopped = false
 	map_size = get_used_rect()
 	
 	for x in range(map_size.size.x):
@@ -29,8 +32,9 @@ func _ready() -> void:
 	
 	update_terrain()
 	
-
 func _process(delta: float) -> void:
+	if game_stopped:
+		return
 	# Update the terrain periodically
 	last_update += delta
 	if last_update >= update_interval:
@@ -113,3 +117,6 @@ func cast_shadow(coords: Vector2i, value: int, limit: int) -> void:
 			var atlas = get_cell_atlas_coords(neighbor)
 			atlas[0] = get_shadow(neighbor)
 			set_cell(neighbor, 0, atlas)
+
+func _on_game_over():
+	game_stopped = true
