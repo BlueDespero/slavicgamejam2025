@@ -652,6 +652,6 @@ collision_enabled = false
 script = ExtResource("2_wijl4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("3_e0an3")]
-position = Vector2(45, 55)
+position = Vector2(609, 419)
 scale = Vector2(0.17, 0.17)
 tile_map = NodePath("../Terrain")
