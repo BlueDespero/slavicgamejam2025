@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://qrpjhtnxdn56" path="res://assets/Tiles/Large tiles/Thick outline/tile_0003.png" id="2_mlqiw"]
 [ext_resource type="PackedScene" uid="uid://dgv2q742w8cgp" path="res://GUI/ingredient.tscn" id="3_rpiss"]
 
-[node name="Order" type="HBoxContainer"]
-custom_minimum_size = Vector2(128, 64)
+[node name="Order" type="VBoxContainer"]
+custom_minimum_size = Vector2(128, 96)
+offset_right = 128.0
+offset_bottom = 96.0
 alignment = 1
 script = ExtResource("1_nglan")
 ingredient_instance = ExtResource("3_rpiss")
@@ -15,8 +17,23 @@ wait_time = 20.0
 autostart = true
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(64, 32)
-scale = Vector2(4, 2)
+position = Vector2(64, 48)
+scale = Vector2(4, 3)
 texture = ExtResource("2_mlqiw")
+
+[node name="Ingredients" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ExtraInfo" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="OrderPoints" type="Label" parent="ExtraInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
 
 [connection signal="timeout" from="OrderTimeout" to="." method="_on_order_timeout_timeout"]
