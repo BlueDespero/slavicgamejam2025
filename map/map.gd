@@ -59,9 +59,9 @@ func _on_harvest_crops(tile_position: Vector2i):
 		print("There is no plant at: ", tile_position)
 		return
 	var plant_name = plant.plant_name
-	if not plant.is_fully_grown():
-		print("Plant not ready for harvesting: ", plant_name)
-		return
+	#if not plant.is_fully_grown():
+		#print("Plant not ready for harvesting: ", plant_name)
+		#return
 	planted_plants.erase(tile_position)
 	EventBus.update_storage.emit(plant_name, 1)
 	plant.queue_free()	

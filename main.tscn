@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgifmsx4lhem8"]
+[gd_scene load_steps=7 format=3 uid="uid://cgifmsx4lhem8"]
 
 [ext_resource type="Script" uid="uid://bewb1j0gyhyrk" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://1al25n8y6pmm" path="res://GUI/gui.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cqpw0gnmoueuk" path="res://map/map.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://dqdgihp8s6ojq" path="res://game_over_timer_on_screen.gd" id="5_7mycd"]
+[ext_resource type="AudioStream" uid="uid://cfdb07gfk0xiu" path="res://assets/background_music.mp3" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://dm2ktqg0ki3ss" path="res://hud.gd" id="5_lquwl"]
+[ext_resource type="Script" path="res://game_over_timer_on_screen.gd" id="6_7mycd"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -85,6 +86,12 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 75
 text = "Let's farm! 🌱"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7mycd")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
 [node name="GameOverTimerOnScreen" type="RichTextLabel" parent="."]
 offset_left = 1095.33
 offset_top = 60.0
@@ -93,7 +100,7 @@ offset_bottom = 91.0
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 text = "21:37"
 horizontal_alignment = 1
-script = ExtResource("5_7mycd")
+script = ExtResource("6_7mycd")
 
 [node name="GameOverTimer" type="Timer" parent="GameOverTimerOnScreen"]
 wait_time = 195.0
