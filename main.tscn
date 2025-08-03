@@ -98,5 +98,6 @@ script = ExtResource("5_7mycd")
 [node name="GameOverTimer" type="Timer" parent="GameOverTimerOnScreen"]
 wait_time = 195.0
 
+[connection signal="pressed" from="HUD/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="HUD/StartGameButton" to="HUD" method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="HUD/StartGameButton" to="GameOverTimerOnScreen" method="_on_start_game_button_pressed"]
