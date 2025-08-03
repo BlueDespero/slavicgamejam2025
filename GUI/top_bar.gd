@@ -3,6 +3,9 @@ extends HBoxContainer
 
 func _ready() -> void:
 	EventBus.storage_updated.connect(_check_if_order_fulfilled)
+	$NewOrderTimer.stop()
+	$Orders/OrderTimeout.stop()
+	EventBus.start_game_button_pressed.connect($NewOrderTimer.start)
 	
 func _check_if_order_fulfilled(plant_key: String, storage: Dictionary) -> void:
 	var last_storage = storage
