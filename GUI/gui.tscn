@@ -22,7 +22,7 @@ script = ExtResource("1_cor1f")
 order_instance = ExtResource("2_cor1f")
 
 [node name="NewOrderTimer" type="Timer" parent="TopBar"]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="Orders" parent="TopBar" instance=ExtResource("2_cor1f")]
