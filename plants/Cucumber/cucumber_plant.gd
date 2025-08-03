@@ -12,8 +12,8 @@ func update_sprite():
 		animated_sprite.frame = current_stage
 
 func influence() -> void:
-	tile_map.water[tile] -= 0.2
 	growth_rate = tile_map.get_water(tile) * 0.1
+	tile_map.water[tile] -= 0.1
 
 func can_grow() -> bool:
 	# Cucumber plants require water to grow

@@ -13,7 +13,9 @@ func update_sprite():
 
 func can_grow() -> bool:
 	# Lemon plants require sun
-	return tile_map.get_shadow(tile) < 1
+	var shadow_level = tile_map.get_shadow(tile)
+	growth_rate = 0.15 if shadow_level < 1 else 0.05
+	return shadow_level < 2
 
 func influence() -> void:
 	tile_map.cast_shadow(tile, 1, current_stage - 1)
