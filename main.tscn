@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgifmsx4lhem8"]
+[gd_scene load_steps=8 format=3 uid="uid://cgifmsx4lhem8"]
 
 [ext_resource type="Script" uid="uid://bewb1j0gyhyrk" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://1al25n8y6pmm" path="res://GUI/gui.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cfdb07gfk0xiu" path="res://assets/background_music.mp3" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://dm2ktqg0ki3ss" path="res://hud.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://dqdgihp8s6ojq" path="res://game_over_timer_on_screen.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://y6t6qew1c78j" path="res://reset_button.gd" id="7_272bh"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -143,7 +144,23 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ResetButton" type="Button" parent="ScoreSummaryHUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -93.0
+offset_right = 107.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Another Try?"
+script = ExtResource("7_272bh")
+
 [connection signal="pressed" from="HUD/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="HUD/StartGameButton" to="HUD" method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="HUD/StartGameButton" to="GameOverTimerOnScreen" method="_on_start_game_button_pressed"]
 [connection signal="timeout" from="GameOverTimerOnScreen/GameOverTimer" to="GameOverTimerOnScreen" method="_on_game_over_timer_timeout"]
+[connection signal="pressed" from="ScoreSummaryHUD/ResetButton" to="ScoreSummaryHUD/ResetButton" method="_on_pressed"]
